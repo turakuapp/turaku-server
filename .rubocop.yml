@@ -1,0 +1,24 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/config.ru'
+    - '**/*.rake'
+  Exclude:
+    - 'db/**/*'
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "log/**/*"
+
+# Rails specific.
+Rails:
+  Enabled: true
+
+# Project rules.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/LineLength:
+  Max: 160 # default was 80.
+Documentation:
+  Enabled: false
