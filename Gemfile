@@ -7,6 +7,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
+
+# A Ruby gem to load environment variables from `.env`. https://github.com/bkeepers/dotenv
+#
+# This needs to be kept near the top of the Gemfile to load environment variables as early as possible.
+gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -39,6 +45,7 @@ end
 
 group :development do
   gem 'bullet', '~> 5.5'
+  gem 'fuubar', '~> 2.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', '~> 0.38', require: false
   gem 'rspec-rails', '~> 3.5'

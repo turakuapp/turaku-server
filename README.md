@@ -1,24 +1,19 @@
-# README
+# Turaku
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development setup
 
-Things you may want to cover:
+1. Install rbenv.
+2. Install Ruby verison specified in the `.ruby-version` file.
+3. Install the `bundler` gem.
+4. Run `bundle install` to fetch dependencies.
+5. Copy `.env.example` to `.env`
 
-* Ruby version
+### Configuration
 
-* System dependencies
+### Database setup
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
+### Testing
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+## Deployment instructions

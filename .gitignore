@@ -17,3 +17,10 @@
 /yarn-error.log
 
 .byebug_history
+
+# Ignore dotenv files.
+.env*
+!.env.example
+
+# Allows RSpec to persist some state between runs.
+spec/examples.txt

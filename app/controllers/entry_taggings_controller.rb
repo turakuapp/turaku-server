@@ -1,0 +1,2 @@
+class EntryTaggingsController < ApplicationController
+end
