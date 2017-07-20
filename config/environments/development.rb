@@ -31,6 +31,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Set the host to use for links in emails.
+  config.action_mailer.default_url_options = { host: 'turaku.dev' }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

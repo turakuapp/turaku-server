@@ -22,3 +22,5 @@ Metrics/LineLength:
   Max: 160 # default was 80.
 Documentation:
   Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded

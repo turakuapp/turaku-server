@@ -15,6 +15,9 @@ gem 'rails', '~> 5.1.2'
 # This needs to be kept near the top of the Gemfile to load environment variables as early as possible.
 gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
 
+# Flexible authentication solution for Rails with Warden.
+gem 'devise', '~> 4.3'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
