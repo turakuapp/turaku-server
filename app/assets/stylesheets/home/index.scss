@@ -1,0 +1,37 @@
+.translation__container {
+  width: 500px;
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.translation__language {
+  font-size: 0.75rem;
+  color: grey;
+  margin-bottom: 1rem;
+}
+
+.translation__malayalam {
+  float: left;
+  padding: 0 4rem 1rem 0;
+  border-right: 1px solid grey;
+}
+
+.translation__english {
+  float: left;
+  padding-left: 1rem;
+}
+
+.translation__text {
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+}
+
+.translation__pronounciation {
+  font-size: 1rem;
+  color: grey;
+}
+
+.clear-both {
+  clear: both;
+}
