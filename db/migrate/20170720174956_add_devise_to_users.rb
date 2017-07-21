@@ -1,8 +1,10 @@
 class AddDeviseToUsers < ActiveRecord::Migration[5.1]
   def self.up
+    enable_extension :citext
+
     change_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ''
+      t.citext :email,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable

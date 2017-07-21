@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170720174956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "citext"
 
   create_table "entries", force: :cascade do |t|
     t.bigint "team_id"
@@ -118,7 +119,7 @@ ActiveRecord::Schema.define(version: 20170720174956) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email", default: "", null: false
+    t.citext "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
