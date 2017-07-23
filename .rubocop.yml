@@ -24,3 +24,8 @@ Documentation:
   Enabled: false
 Style/EmptyMethod:
   EnforcedStyle: expanded
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'config/**/*'
+    - 'spec/factories/*'
