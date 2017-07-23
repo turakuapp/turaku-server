@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170720174956) do
     t.datetime "last_used_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["token_hash"], name: "index_sessions_on_token_hash"
+    t.index ["token_hash"], name: "index_sessions_on_token_hash", unique: true
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 

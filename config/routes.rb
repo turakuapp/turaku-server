@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :group_memberships
     resources :tags
     resources :groups
-    resources :sessions
+    resources :sessions, only: [:create]
     resources :user_activities
     resources :team_memberships
     resources :entries

@@ -9,6 +9,6 @@ class CreateSessions < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :sessions, :token_hash
+    add_index :sessions, :token_hash, unique: true
   end
 end

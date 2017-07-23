@@ -15,6 +15,9 @@ gem 'rails', '~> 5.1.2'
 # This needs to be kept near the top of the Gemfile to load environment variables as early as possible.
 gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
 
+# ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers', '~> 0.10.0'
+
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 4.3'
 
