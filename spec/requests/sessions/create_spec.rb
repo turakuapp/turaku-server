@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Create session' do
   context 'when passed invalid parameters' do
     it 'returns AuthenticationFailureException' do
-      post '/api/v0/session'
+      post '/api/v0/sessions'
       expect(response).to have_http_status(422)
       expect(json['exception']).to eq('AuthenticationFailureException')
     end
@@ -14,7 +14,7 @@ RSpec.describe 'Create session' do
 
     it 'returns a new session' do
       expect do
-        post '/api/v0/session', params: { email: user.email, password: 'password' }
+        post '/api/v0/sessions', params: { email: user.email, password: 'password' }
       end.to change { Session.count }.by(1)
 
       expect(response).to be_success

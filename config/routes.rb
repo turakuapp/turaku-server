@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       resources :group_memberships
       resources :tags
       resources :groups
-      resource :session, only: %i[create destroy]
-      resources :sessions, only: %i[index destroy]
+      resource :session, only: %i[destroy]
+      resources :sessions, only: %i[index create destroy]
       resources :user_activities
       resources :team_memberships
       resources :entries
