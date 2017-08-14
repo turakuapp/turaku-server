@@ -27,5 +27,13 @@ module Turaku
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Configure CORS.
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '/api/v0/*', headers: :any, methods: %i[get post options]
+      end
+    end
   end
 end
