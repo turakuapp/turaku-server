@@ -18,6 +18,9 @@ gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
 # ActiveModel::Serializer implementation and Rails hooks
 gem 'active_model_serializers', '~> 0.10.0'
 
+# Ruby on Rails API documentation tool. https://github.com/Apipie/apipie-rails
+gem 'apipie-rails', '~> 0.5'
+
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 4.3'
 
