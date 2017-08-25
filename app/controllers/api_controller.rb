@@ -12,6 +12,10 @@ class ApiController < ActionController::Base
     render json: { exception: exception.name, reason: exception.reason }, status: exception.code
   end
 
+  rescue_from ActionController::ParameterMissing do |exception|
+    render json: { exception: 'ParameterMissing', reason: "The parameter '#{exception.param}' is required for this request." }, status: 422
+  end
+
   protected
 
   def authenticate_user_with_auth_token

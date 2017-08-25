@@ -21,8 +21,14 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Ruby on Rails API documentation tool. https://github.com/Apipie/apipie-rails
 gem 'apipie-rails', '~> 0.5'
 
+# Bootstrap 4 Ruby Gem for Rails / Sprockets and Compass. https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap', '~> 4.0.0.beta'
+
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 4.3'
+
+# A gem to automate using jQuery with Rails. https://github.com/rails/jquery-rails
+gem 'jquery-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -41,6 +47,9 @@ gem 'coffee-rails', '~> 4.2'
 # Rack Middleware for handling Cross-Origin Resource Sharing (CORS), which makes cross-origin AJAX possible.
 gem 'rack-cors', require: 'rack/cors'
 
+# TODO: Switch to regular version of reform-rails when it becomes available.
+gem 'reform-rails', '~> 0.1.7'
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -52,6 +61,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'webpacker', '~> 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
