@@ -24,3 +24,5 @@
 
 # Allows RSpec to persist some state between runs.
 spec/examples.txt
+/public/packs
+/node_modules
