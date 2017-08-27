@@ -5,7 +5,6 @@ module V0
     # POST /api/v0/sessions?email=&password=
     def create
       user = Users::AuthenticationService.new(params[:email], params[:password]).authenticate
-      raise Sessions::AuthenticationFailureException if user.blank?
       session = Sessions::CreateService.new(user).create
       render json: SessionSerializer.new(session)
     end

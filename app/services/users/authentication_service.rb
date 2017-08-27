@@ -10,8 +10,8 @@ module Users
     # @return [User] Authenticated user, if any.
     def authenticate
       user = User.find_by(email: @email)
-      return if user.blank?
-      user if user.valid_password?(@password)
+      raise Sessions::AuthenticationFailureException if user.blank? || !user.valid_password?(@password)
+      raise Sessions::UnconfirmedEmailException unless user.confirmed?
     end
   end
 end
