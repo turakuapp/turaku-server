@@ -34,6 +34,9 @@ Rails.application.configure do
   # Set the host to use for links in emails.
   config.action_mailer.default_url_options = { host: 'turaku.dev' }
 
+  # Use letter_opener to handle mails in development.
+  config.action_mailer.delivery_method = :letter_opener
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

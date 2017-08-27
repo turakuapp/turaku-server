@@ -78,6 +78,7 @@ end
 group :development do
   gem 'bullet', '~> 5.5'
   gem 'fuubar', '~> 2.2'
+  gem 'letter_opener', '~> 1.4'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', '~> 0.38', require: false
   gem 'rspec-rails', '~> 3.5'
