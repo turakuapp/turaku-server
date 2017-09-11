@@ -12,13 +12,12 @@ module V0
     def create
       registration_form = Users::RegistrationForm.new(User.new)
 
-      if registration_form.validate(registration_params)
-        user = registration_form.save
-        render json: user
-      else
-        # TODO: Should be handled as a standard ValidationFailureException response from the API, which the client can then handle.
-        render json: registration_form.errors
+      unless registration_form.validate(registration_params)
+        raise ValidationFailureException, registration_form.errors
       end
+
+      user = registration_form.save
+      render json: user
     end
 
     private
