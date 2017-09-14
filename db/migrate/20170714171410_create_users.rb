@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       t.string :name
       t.string :authentication_salt
+      t.string :encryption_salt
 
       t.timestamps
     end
