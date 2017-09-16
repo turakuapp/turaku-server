@@ -2,6 +2,13 @@
 
 ## Development setup
 
+### Dependencies
+
+1. LibPQ - On Ubuntu, install `libpq-dev`.
+2. Node - any version.
+
+### Steps
+
 1. Install rbenv.
 2. Install Ruby verison specified in the `.ruby-version` file.
 3. Install the `bundler` gem.
