@@ -12,6 +12,7 @@ module Users
       user = User.find_by(email: @email)
       raise Sessions::AuthenticationFailureException if user.blank? || !user.valid_password?(@password)
       raise Sessions::UnconfirmedEmailException unless user.confirmed?
+      user
     end
   end
 end
