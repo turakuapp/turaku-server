@@ -2,10 +2,9 @@ module V0
   class UsersController < ApiController
     skip_before_action :authenticate_user_with_auth_token, only: %i[create authentication_salt]
 
-    # GET /api/v0/users?email=
+    # GET /api/v0/users/authentication_salt?email=
     def authentication_salt
-      salt = Users::AuthenticationSaltService.new(email: params[:email]).salt
-      render(json: { salt: salt })
+      @salt = Users::AuthenticationSaltService.new(email: params[:email]).salt
     end
 
     # POST /api/v0/users?registration_params
@@ -16,8 +15,8 @@ module V0
         raise ValidationFailureException, registration_form.errors
       end
 
-      user = registration_form.save
-      render json: user
+      registration_form.save
+      head :ok
     end
 
     private

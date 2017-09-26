@@ -10,8 +10,7 @@ module V0
         raise ValidationFailureException, sign_in_form.errors
       end
 
-      session = sign_in_form.save
-      render json: SessionSerializer.new(session)
+      @session = sign_in_form.save
     end
 
     # DELETE /api/v0/session
