@@ -2,6 +2,7 @@ class ApiController < ActionController::Base
   before_action :authenticate_user_with_auth_token
 
   helper_method :current_session
+  helper_method :current_user
   attr_reader :current_session
 
   rescue_from ActiveRecord::RecordNotFound do
@@ -25,10 +26,13 @@ class ApiController < ActionController::Base
 
     # Notice we are passing store false, so the user is not actually stored in the session and a token is needed for
     # every request. If you want the token to work as a sign in token, you can simply remove store: false.
-    sign_in @current_session.user, store: false
+    # sign_in @current_session.user, store: false
   end
 
-  private
+  def current_user
+    return if current_session.blank?
+    current_session.user
+  end
 
   def auth_token
     return if request.headers['Authorization'].blank?

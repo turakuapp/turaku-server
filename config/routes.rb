@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
 
-  scope 'api' do
+  scope 'api', defaults: { format: :json } do
     namespace :v0 do
-      resources :teams, only: [:index]
+      resources :teams, only: [:create]
       resources :permissions, only: %i[]
       resources :entry_taggings, only: %i[]
       resources :group_memberships, only: %i[]
