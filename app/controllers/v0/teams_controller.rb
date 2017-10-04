@@ -11,6 +11,11 @@ module V0
       @team = Users::CreateTeamService.new(current_user, create_params).create
     end
 
+    # GET /api/v0/teams/:id/users
+    def users
+      @team = current_user.teams.find(params[:id])
+    end
+
     private
 
     def create_params

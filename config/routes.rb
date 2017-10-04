@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   scope 'api', defaults: { format: :json } do
     namespace :v0 do
-      resources :teams, only: [:create]
+      resources :teams, only: [:create] do
+        member do
+          get 'users'
+        end
+      end
+
       resources :permissions, only: %i[]
       resources :entry_taggings, only: %i[]
       resources :group_memberships, only: %i[]
