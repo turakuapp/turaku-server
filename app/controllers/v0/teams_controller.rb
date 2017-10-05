@@ -16,10 +16,18 @@ module V0
       @team = current_user.teams.find(params[:id])
     end
 
+    # POST /api/v0/teams/:id/invite?invite_params
+    def invite
+    end
+
     private
 
     def create_params
       params.require(:team).permit(:name)
+    end
+
+    def invite_params
+      params.require(:user).permit(:name, :email)
     end
   end
 end

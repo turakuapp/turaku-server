@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :teams, only: [:create] do
         member do
           get 'users'
+          post 'invite'
         end
       end
 
