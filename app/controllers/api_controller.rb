@@ -3,7 +3,6 @@ class ApiController < ActionController::Base
 
   helper_method :current_session
   helper_method :current_user
-  attr_reader :current_session
 
   rescue_from ActiveRecord::RecordNotFound do
     render json: { exception: 'ResourceNotFound', reason: 'The resource you requested could not be found.' }, status: 404
@@ -19,10 +18,12 @@ class ApiController < ActionController::Base
 
   protected
 
-  def authenticate_user_with_auth_token
-    @current_session = Sessions::AuthenticationService.new(auth_token).authenticate
+  def current_session
+    @current_session ||= Sessions::AuthenticationService.new(auth_token).authenticate
+  end
 
-    raise Sessions::TokenAuthenticationFailedException if @current_session.blank?
+  def authenticate_user_with_auth_token
+    raise Sessions::TokenAuthenticationFailedException if current_session.blank?
 
     # Notice we are passing store false, so the user is not actually stored in the session and a token is needed for
     # every request. If you want the token to work as a sign in token, you can simply remove store: false.

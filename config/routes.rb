@@ -18,7 +18,13 @@ Rails.application.routes.draw do
       resources :tags, only: %i[]
       resources :groups, only: %i[]
       resource :session, only: %i[destroy]
-      resources :sessions, only: %i[index create destroy]
+
+      resources :sessions, only: %i[create destroy] do
+        collection do
+          get 'restore'
+        end
+      end
+
       resources :user_activities, only: %i[]
       resources :team_memberships, only: %i[]
       resources :entries, only: %i[]

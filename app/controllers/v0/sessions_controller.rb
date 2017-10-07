@@ -21,6 +21,11 @@ module V0
       head :ok
     end
 
+    def restore
+      @session = current_session
+      render :create
+    end
+
     private
 
     def create_params
