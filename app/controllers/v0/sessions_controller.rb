@@ -16,9 +16,8 @@ module V0
     # DELETE /api/v0/session
     # DELETE /api/v0/sessions/:id
     def destroy
-      session = params[:id].present? ? Session.find(params[:id]) : current_session
-      Sessions::DestroyService.new(session).execute
-      head :ok
+      @session = params[:id].present? ? Session.find(params[:id]) : current_session
+      Sessions::DestroyService.new(@session).execute
     end
 
     def restore

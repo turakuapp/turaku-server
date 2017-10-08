@@ -15,8 +15,7 @@ module V0
         raise ValidationFailureException, registration_form.errors
       end
 
-      registration_form.save
-      head :ok
+      @user = registration_form.save
     end
 
     private

@@ -1,0 +1,1 @@
+json.(@session, :id, :name)
