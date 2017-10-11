@@ -53,16 +53,16 @@ ActiveRecord::Schema.define(version: 20171009152950) do
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.string "invitation_token"
-    t.datetime "invitation_created_at"
-    t.datetime "invitation_sent_at"
-    t.datetime "invitation_accepted_at"
-    t.bigint "invited_user_id"
-    t.bigint "inviting_user_id"
+    t.datetime "sent_at"
+    t.datetime "accepted_at"
+    t.bigint "invited_user_id", null: false
+    t.bigint "inviting_user_id", null: false
+    t.bigint "team_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invited_user_id"], name: "index_invitations_on_invited_user_id"
     t.index ["inviting_user_id"], name: "index_invitations_on_inviting_user_id"
+    t.index ["team_id"], name: "index_invitations_on_team_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20171009152950) do
   add_foreign_key "group_memberships", "groups"
   add_foreign_key "group_memberships", "users"
   add_foreign_key "groups", "teams"
+  add_foreign_key "invitations", "teams"
   add_foreign_key "invitations", "users", column: "inviting_user_id"
   add_foreign_key "permissions", "teams"
   add_foreign_key "tags", "teams"

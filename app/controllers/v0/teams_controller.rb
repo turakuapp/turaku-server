@@ -18,6 +18,17 @@ module V0
 
     # POST /api/v0/teams/:id/invite?invite_params
     def invite
+      team = current_user.teams.find(params[:id])
+
+      authorize [:v0, team]
+
+      form = Users::InviteForm.new(User.new)
+
+      unless form.validate(invite_params)
+        raise ValidationFailureException, form.errors
+      end
+
+      @invitation = form.save(current_user, team)
     end
 
     private
@@ -27,7 +38,7 @@ module V0
     end
 
     def invite_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:email)
     end
   end
 end

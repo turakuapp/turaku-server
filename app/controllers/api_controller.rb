@@ -1,4 +1,5 @@
 class ApiController < ActionController::Base
+  include Pundit
   before_action :authenticate_user_with_auth_token
 
   helper_method :current_session
