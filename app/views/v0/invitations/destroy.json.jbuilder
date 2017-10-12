@@ -1,0 +1,1 @@
+json.(@invitation, :id, :email)

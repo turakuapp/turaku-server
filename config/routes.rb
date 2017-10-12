@@ -34,6 +34,12 @@ Rails.application.routes.draw do
           get 'authentication_salt'
         end
       end
+
+      resources :invitation, only: %i[create delete] do
+        member do
+          post 'accept'
+        end
+      end
     end
   end
 
