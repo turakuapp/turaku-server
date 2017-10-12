@@ -1,0 +1,9 @@
+<h1>You have been invited to join a team on Turaku</h1>
+
+<p><%= @inviting_user.name %> has invited you to join team <%= @team.name %>.</p>
+
+<% if @invited_user.confirmed? %>
+  <p>To accept (or reject) this invitation, please sign into Turaku.</p>
+<% else %>
+  <p>To accept, download Turaku and sign up.</p>
+<% end %>

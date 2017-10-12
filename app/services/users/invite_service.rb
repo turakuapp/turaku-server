@@ -19,6 +19,8 @@ module Users
           inviting_user: @inviting_user,
           team: @team
         )
+
+        UserMailer.invite(user, @inviting_user, @team).deliver_later
       end
     end
   end
