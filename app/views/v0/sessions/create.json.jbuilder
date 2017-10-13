@@ -7,3 +7,13 @@ end
 json.teams @session.user.teams do |team|
   json.(team, :id, :name)
 end
+
+json.incoming_invitations @session.user.incoming_invitations do |invitation|
+  json.team do
+    json.(invitation.team, :id, :name)
+  end
+
+  json.inviting_user do
+    json.(invitation.inviting_user, :email)
+  end
+end
