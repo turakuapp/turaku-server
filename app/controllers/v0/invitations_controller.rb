@@ -34,8 +34,6 @@ module V0
       authorize [:v0, @invitation]
 
       Invitations::AcceptService.new(@invitation).execute
-
-      # TODO: This should probably return the same data as when a team is chosen from the list.
     end
 
     private
