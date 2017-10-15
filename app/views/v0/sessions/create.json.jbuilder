@@ -8,7 +8,7 @@ json.teams @session.user.teams do |team|
   json.(team, :id, :name)
 end
 
-json.incoming_invitations @session.user.incoming_invitations do |invitation|
+json.incoming_invitations @session.user.incoming_invitations.pending do |invitation|
   json.(invitation, :id)
 
   json.team do
