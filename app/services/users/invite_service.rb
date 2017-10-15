@@ -14,13 +14,11 @@ module Users
 
         raise Users::AlreadyInvitedException if user.incoming_invitations.find_by(team: @team).present?
 
-        Invitation.create!(
-          invited_user: user,
-          inviting_user: @inviting_user,
-          team: @team
-        )
+        invitation = Invitation.create!(invited_user: user, inviting_user: @inviting_user, team: @team)
 
         UserMailer.invite(user, @inviting_user, @team).deliver_later
+
+        invitation
       end
     end
   end

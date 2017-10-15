@@ -9,6 +9,8 @@ json.teams @session.user.teams do |team|
 end
 
 json.incoming_invitations @session.user.incoming_invitations do |invitation|
+  json.(invitation, :id)
+
   json.team do
     json.(invitation.team, :id, :name)
   end

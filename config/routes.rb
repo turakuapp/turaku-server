@@ -35,7 +35,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :invitation, only: %i[create delete] do
+      resources :invitations, only: %i[create destroy] do
         member do
           post 'accept'
         end

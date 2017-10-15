@@ -1,5 +1,5 @@
 module V0
-  class InvitationsController < ApplicationController
+  class InvitationsController < ApiController
     # POST /api/v0/invitations?create_params
     def create
       invitation = Invitation.new(
