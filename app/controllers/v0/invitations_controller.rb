@@ -29,7 +29,7 @@ module V0
 
     # POST /api/v0/invitations/:id/accept
     def accept
-      @invitation = current_user.invitations.find(params[:id])
+      @invitation = current_user.incoming_invitations.find(params[:id])
 
       authorize [:v0, @invitation]
 
