@@ -86,7 +86,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', '~> 0.38', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'rubocop', '~> 0.49', require: false
+  gem 'rubocop', '~> 0.49.0', require: false
   gem 'spring', '~> 2.0'
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '>= 3.3.0'
