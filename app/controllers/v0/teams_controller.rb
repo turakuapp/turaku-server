@@ -13,7 +13,10 @@ module V0
 
     # GET /api/v0/teams/:id/users
     def users
-      @team = current_user.teams.find(params[:id])
+      team = current_user.teams.find(params[:id])
+
+      @users = team.users
+      @invited_users = team.invited_users.merge(Invitation.pending)
     end
 
     private
