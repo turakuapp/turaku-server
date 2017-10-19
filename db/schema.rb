@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20171009152950) do
   create_table "team_memberships", force: :cascade do |t|
     t.bigint "team_id"
     t.bigint "user_id"
+    t.string "encrypted_password"
     t.string "default_permission_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

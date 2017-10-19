@@ -7,7 +7,11 @@ module Users
 
     # @return [Team] Newly created Team
     def create
-      @user.teams.create!(name: @params[:name])
+      Team.transaction do
+        team = Team.create!(name: @params[:name])
+        TeamMembership.create!(team: team, user: @user, encrypted_password: @params[:encrypted_password])
+        team
+      end
     end
   end
 end

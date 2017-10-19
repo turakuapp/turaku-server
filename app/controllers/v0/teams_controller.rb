@@ -22,7 +22,7 @@ module V0
     private
 
     def create_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:name, :encrypted_password)
     end
   end
 end
