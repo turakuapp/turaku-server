@@ -6,6 +6,7 @@ end
 
 json.teams @session.user.teams do |team|
   json.(team, :id, :name)
+  json.encrypted_password team.team_memberships.find_by(user: @session.user).encrypted_password
 end
 
 json.incoming_invitations @session.user.incoming_invitations.pending do |invitation|
