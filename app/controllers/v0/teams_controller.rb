@@ -8,7 +8,7 @@ module V0
         raise ValidationFailureException, form.errors
       end
 
-      @team = Users::CreateTeamService.new(current_user, create_params).create
+      @team = form.save(current_user)
     end
 
     # GET /api/v0/teams/:id/users
@@ -22,7 +22,7 @@ module V0
     private
 
     def create_params
-      params.require(:team).permit(:name, :encrypted_password)
+      params.require(:team).permit(:name, encrypted_password: {})
     end
   end
 end
