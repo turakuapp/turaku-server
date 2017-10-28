@@ -33,13 +33,23 @@ module V0
 
       authorize [:v0, @invitation]
 
-      Invitations::AcceptService.new(@invitation).execute
+      form = Invitations::AcceptForm.new(@invitation)
+
+      unless form.validate(accept_params)
+        raise ValidationFailureException, form.errors
+      end
+
+      form.save
     end
 
     private
 
     def create_params
       params.require(:invitation).permit(:team_id, :email)
+    end
+
+    def accept_params
+      params.require(:team).permit(encrypted_password: {})
     end
   end
 end

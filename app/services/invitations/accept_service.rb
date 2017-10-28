@@ -1,7 +1,8 @@
 module Invitations
   class AcceptService
-    def initialize(invitation)
+    def initialize(invitation, encrypted_password)
       @invitation = invitation
+      @encrypted_password = encrypted_password
     end
 
     def execute
@@ -9,9 +10,11 @@ module Invitations
 
       Invitation.transaction do
         # Add invited user to the team.
-        team = @invitation.team
-        team.users << @invitation.invited_user
-        team.save!
+        TeamMembership.create!(
+          team: @invitation.team,
+          user: @invitation.invited_user,
+          encrypted_password: @encrypted_password
+        )
 
         # Mark the invitation as having been accepted.
         @invitation.update!(accepted_at: Time.zone.now)
