@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20171009152950) do
   create_table "entries", force: :cascade do |t|
     t.bigint "team_id"
     t.bigint "user_id"
-    t.text "encrypted_data"
+    t.jsonb "encrypted_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_entries_on_team_id"
