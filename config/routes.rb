@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :v0 do
       resources :teams, only: [:create] do
         member do
+          get 'entries'
           get 'users'
           post 'invite'
         end

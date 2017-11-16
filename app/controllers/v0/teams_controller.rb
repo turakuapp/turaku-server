@@ -11,6 +11,12 @@ module V0
       @team = form.save(current_user)
     end
 
+    # GET /api/v0/teams/:id/entries
+    def entries
+      team = current_user.teams.find(params[:id])
+      @entries = team.entries
+    end
+
     # GET /api/v0/teams/:id/users
     def users
       team = current_user.teams.find(params[:id])
