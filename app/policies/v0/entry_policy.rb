@@ -4,5 +4,9 @@ module V0
       team = Team.find_by(id: team_id)
       team.present? && team.users.include?(user)
     end
+
+    def update?
+      record.team.in?(user.teams)
+    end
   end
 end

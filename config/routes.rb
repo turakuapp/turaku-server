@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
       resources :user_activities, only: %i[]
       resources :team_memberships, only: %i[]
-      resources :entries, only: %i[create]
+      resources :entries, only: %i[create update]
 
       resources :users, only: %i[create] do
         collection do
