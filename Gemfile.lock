@@ -66,6 +66,7 @@ GEM
       activesupport
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -154,6 +155,11 @@ GEM
     pg (0.21.0)
     popper_js (1.11.1)
     powerpack (0.1.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.0)
     puma (3.10.0)
     pundit (1.1.0)
@@ -302,6 +308,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   overcommit (~> 0.38)
   pg (~> 0.18)
+  pry-rails (~> 0.3)
   puma (~> 3.7)
   pundit (~> 1.1)
   rack-cors

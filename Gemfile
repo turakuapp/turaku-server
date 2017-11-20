@@ -68,6 +68,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'webpacker', '~> 2.0'
 
+# An IRB alternative and runtime developer console.
+gem 'pry-rails', '~> 0.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
