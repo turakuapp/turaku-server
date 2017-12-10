@@ -4,4 +4,5 @@ class Team < ApplicationRecord
   has_many :invitations, dependent: :destroy
   has_many :invited_users, through: :invitations
   has_many :entries
+  has_many :tags
 end
