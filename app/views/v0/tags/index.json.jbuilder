@@ -1,1 +1,1 @@
-json.tags @tags, :encrypted_name, :name_hash
+json.tags @tags, :id, :encrypted_name, :name_hash
