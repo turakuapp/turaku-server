@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :permissions, only: %i[]
       resources :entry_taggings, only: %i[]
       resources :group_memberships, only: %i[]
-      resources :tags, only: %i[index]
+      resources :tags, only: %i[index create]
       resources :groups, only: %i[]
       resource :session, only: %i[destroy]
 

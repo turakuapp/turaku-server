@@ -32,11 +32,11 @@ module V0
     private
 
     def create_params
-      params.require(:entry).permit(:team_id, encrypted_data: {})
+      params.require(:entry).permit(:team_id, { encrypted_data: {} }, tag_ids: [])
     end
 
     def update_params
-      params.require(:entry).permit(encrypted_data: {})
+      params.require(:entry).permit({ encrypted_data: {} }, tag_ids: [])
     end
   end
 end
