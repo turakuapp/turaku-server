@@ -2,9 +2,11 @@ module V0
   class EntriesController < ApiController
     # POST /api/v0/entries?create_params
     def create
-      raise Pundit::NotAuthorizedError unless EntryPolicy.new(current_user, :entry).create?(create_params[:team_id])
+      team = current_user.teams.find(create_params[:team_id])
+      entry = Entry.new(team: team)
+      authorize [:v0, entry]
 
-      form = Entries::CreateForm.new(Entry.new)
+      form = Entries::CreateForm.new(entry)
 
       unless form.validate(create_params)
         raise ValidationFailureException, form.errors
