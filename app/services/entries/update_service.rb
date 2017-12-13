@@ -7,14 +7,14 @@ module Entries
     def initialize(entry, encrypted_data, tags)
       @entry = entry
       @encrypted_data = encrypted_data
-      @tags = tags
+      @tags = tags || []
     end
 
     # @return [Entry] Updated entry.
-    def create
-      entry.update!(
+    def update
+      @entry.update!(
         encrypted_data: @encrypted_data,
-        tags: tags
+        tags: @tags
       )
     end
   end

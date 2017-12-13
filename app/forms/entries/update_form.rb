@@ -1,6 +1,6 @@
 module Entries
   class UpdateForm < Reform::Form
-    include TagsExistenceValidatable
+    include ::TagsExistenceValidatable
 
     property :encrypted_data, validates: { encrypted_object: true }
     property :tag_ids

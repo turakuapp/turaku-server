@@ -1,6 +1,6 @@
 module Entries
   class CreateForm < Reform::Form
-    include TagsExistenceValidatable
+    include ::TagsExistenceValidatable
 
     property :team_id, validates: { presence: true }
     property :encrypted_data, validates: { encrypted_object: true }

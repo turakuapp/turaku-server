@@ -9,16 +9,15 @@ module Entries
       @user = user
       @team = team
       @encrypted_data = encrypted_data
-      @tags = tags
+      @tags = tags || []
     end
 
     # @return [Entry] Newly created entry.
     def create
-      Entry.create!(
+      @team.entries.create!(
         user: @user,
-        team: @team,
         encrypted_data: @encrypted_data,
-        tags: tags
+        tags: @tags
       )
     end
   end
