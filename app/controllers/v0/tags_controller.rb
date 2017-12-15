@@ -20,6 +20,7 @@ module V0
       end
 
       @tag = form.save
+      render status: (form.created? ? :created : :ok)
     end
 
     private

@@ -17,6 +17,8 @@ Rails:
   Enabled: true
 
 # Project rules.
+Style/DoubleNegation:
+  Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
