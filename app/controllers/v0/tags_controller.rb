@@ -11,7 +11,7 @@ module V0
     def create
       team = Team.find(create_params[:team_id])
       tag = Tag.new(team: team)
-      authorize tag
+      authorize [:v0, tag]
 
       form = Tags::CreateForm.new(create_params)
 
@@ -26,7 +26,7 @@ module V0
     private
 
     def create_params
-      params.require(:tag).permit(:team_id, :encrypted_name, :name_hash)
+      params.require(:tag).permit(:team_id, :name_hash, encrypted_name: {})
     end
   end
 end
