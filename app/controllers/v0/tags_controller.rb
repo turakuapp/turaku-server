@@ -13,7 +13,7 @@ module V0
       tag = Tag.new(team: team)
       authorize [:v0, tag]
 
-      form = Tags::CreateForm.new(create_params)
+      form = Tags::CreateForm.new(tag)
 
       unless form.validate(create_params)
         raise ValidationFailureException, form.errors
