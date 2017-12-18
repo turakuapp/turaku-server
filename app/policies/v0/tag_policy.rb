@@ -3,5 +3,9 @@ module V0
     def index?
       user.teams.include?(record.team)
     end
+
+    def create?
+      index?
+    end
   end
 end
