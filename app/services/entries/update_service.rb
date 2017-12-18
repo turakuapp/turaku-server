@@ -16,6 +16,8 @@ module Entries
         encrypted_data: @encrypted_data,
         tags: @tags
       )
+
+      @entry
     end
   end
 end
