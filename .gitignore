@@ -26,3 +26,6 @@
 spec/examples.txt
 /public/packs
 /node_modules
+
+# IDE-specific files.
+/.idea
