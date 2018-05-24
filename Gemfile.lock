@@ -112,6 +112,10 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.10)
+      railties
+      sprockets-rails
+    graphql (1.8.0)
     i18n (0.8.6)
     iniparse (1.4.4)
     jbuilder (2.7.0)
@@ -302,6 +306,8 @@ DEPENDENCIES
   factory_girl_rails (~> 4.8)
   faker (~> 1.7)
   fuubar (~> 2.2)
+  graphiql-rails (~> 1.4)
+  graphql (~> 1.8)
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener (~> 1.4)

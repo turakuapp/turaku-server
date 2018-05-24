@@ -32,8 +32,7 @@ class ApiController < ActionController::Base
   end
 
   def current_user
-    return if current_session.blank?
-    current_session.user
+    @current_user ||= current_session&.user
   end
 
   def auth_token

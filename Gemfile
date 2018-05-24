@@ -71,6 +71,9 @@ gem 'webpacker', '~> 2.0'
 # An IRB alternative and runtime developer console.
 gem 'pry-rails', '~> 0.3'
 
+# Ruby implementation of GraphQL. http://graphql-ruby.org
+gem 'graphql', '~> 1.8'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -85,6 +88,10 @@ end
 group :development do
   gem 'bullet', '~> 5.5'
   gem 'fuubar', '~> 2.2'
+
+  # Mount the GraphiQL query editor in a Rails app.
+  gem 'graphiql-rails', '~> 1.4'
+
   gem 'letter_opener', '~> 1.4'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', '~> 0.38', require: false
