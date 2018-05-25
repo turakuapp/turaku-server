@@ -1,5 +1,5 @@
 class UserPolicy < ApplicationPolicy
   def owner?
-    false
+    record == user
   end
 end
