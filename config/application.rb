@@ -33,6 +33,8 @@ module Turaku
       allow do
         origins '*'
         resource '/api/v0/*', headers: :any, methods: %i[get post patch delete options]
+        resource '/graphql', headers: :any, methods: %i[get post patch delete options]
+        resource '/graphql/*', headers: :any, methods: %i[get post patch delete options]
       end
     end
   end
