@@ -4,6 +4,8 @@ class Types::QueryType < Types::BaseObject
   end
 
   def user(**args)
-    User.find_by(email: args[:email])
+    user = User.find_by(email: args[:email])
+    return user if user.present?
+    User.new(email: args[:email], authentication_salt: Users::AuthenticationSaltService.new(email: args[:email]).salt)
   end
 end
