@@ -1,3 +1,3 @@
 class Types::MutationType < Types::BaseObject
-  field :create_user, Mutations::CreateUser.field, null: true
+  field :create_user, mutation: Mutations::CreateUser, null: true
 end

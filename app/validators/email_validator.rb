@@ -3,6 +3,6 @@ class EmailValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     return if REGULAR_EXPRESSION.match?(value)
-    record.errors[attribute] << 'does not look like an email address'
+    record.errors[attribute] << "InvalidEmail"
   end
 end
