@@ -1,5 +1,3 @@
-Types::MutationType = GraphQL::ObjectType.define do
-  name "Mutation"
-
-  field :createUser, Mutations::CreateUser.field
+class Types::MutationType < Types::BaseObject
+  field :create_user, Mutations::CreateUser.field, null: true
 end
