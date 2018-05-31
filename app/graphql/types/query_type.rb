@@ -1,5 +1,5 @@
 class Types::QueryType < Types::BaseObject
-  field :user, Types::UserType, description: "Find a User with email address", null: true do
+  field :user, Types::User, description: "Find a User with email address", null: true do
     argument :email, String, required: true
   end
 
