@@ -74,6 +74,9 @@ gem 'pry-rails', '~> 0.3'
 # Ruby implementation of GraphQL. http://graphql-ruby.org
 gem 'graphql', '~> 1.8'
 
+# Seedbank gives your seed data a little structure.
+gem 'seedbank', '~> 0.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

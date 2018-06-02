@@ -18,5 +18,7 @@ class User < ApplicationRecord
   end
 
   # Do not send confirmation email if skipping password. This is for when inviting a user who is not already registered.
-  alias confirmation_required? password_required?
+  def confirmation_required?
+    password_required? unless confirmed?
+  end
 end
