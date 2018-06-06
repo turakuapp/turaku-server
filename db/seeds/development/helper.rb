@@ -5,7 +5,7 @@ class Seed
     encryption_salt = SecureRandom.hex(32)
 
     {
-      password: Digest::SHA2.hexdigest(secret + authentication_salt),
+      password: Digest::SHA2.base64digest(secret + authentication_salt),
       authentication_salt: authentication_salt,
       encryption_salt: encryption_salt
     }
@@ -23,12 +23,12 @@ class Seed
     cipher = OpenSSL::Cipher.new 'AES-256-CBC'
     cipher.encrypt
     iv = cipher.random_iv
-    cipher.key= Base64.decode64(key)
+    cipher.key= Base64.strict_decode64(key)
     encrypted = cipher.update(password) + cipher.final
 
     {
-      ciphertext: Base64.encode64(encrypted),
-      iv: Base64.encode64(iv)
+      ciphertext: Base64.strict_encode64(encrypted),
+      iv: Base64.strict_encode64(iv)
     }
   end
 end
