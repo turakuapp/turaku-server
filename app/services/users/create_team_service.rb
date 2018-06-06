@@ -10,7 +10,7 @@ module Users
     def create
       Team.transaction do
         team = Team.create!(name: @name)
-        TeamMembership.create!(team: team, user: @user, encrypted_password: @encrypted_password)
+        TeamMembership.create!(team: team, user: @user, encrypted_password: @encrypted_password.to_h)
         team
       end
     end
