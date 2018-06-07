@@ -4,6 +4,7 @@ class Types::QueryType < Types::BaseObject
   end
 
   field :session, Types::Session, description: "Get current session", null: false
+  field :sessions, [Types::Session], description: "List sessions for current user", null: false
 
   def user(**args)
     user = User.find_by(email: args[:email])
@@ -11,7 +12,10 @@ class Types::QueryType < Types::BaseObject
   end
 
   def session
-    # The authentication token needs to be taken from the request because we don't store it server-side.
-    context[:current_session].tap { |s| s.token = context[:auth_token] }
+    context[:current_session]
+  end
+
+  def sessions
+    context[:current_user].sessions
   end
 end
