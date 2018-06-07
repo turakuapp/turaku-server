@@ -19,7 +19,7 @@ module Sessions
     private
 
     def session
-      @session ||= supplied_session || current_session
+      @session ||= supplied_session || @current_session
     end
 
     def supplied_session
