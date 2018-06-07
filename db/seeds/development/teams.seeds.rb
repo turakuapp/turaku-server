@@ -7,5 +7,5 @@ after 'development:users' do
 
   # Create team, and set enc
   team = john.teams.create!(name: 'Hunters Inc.')
-  TeamMembership.find_by(team: team, user: john).update!(encrypted_password: Seed.encrypted_password(john.encryption_salt))
+  TeamMembership.find_by(team: team, user: john).update!(encrypted_password: Seed.encrypted_team_password(john, 'password'))
 end
