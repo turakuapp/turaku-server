@@ -6,6 +6,14 @@ class Types::QueryType < Types::BaseObject
   field :session, Types::Session, description: "Get current session", null: false
   field :sessions, [Types::Session], description: "List sessions for current user", null: false
 
+  field :team, Types::Team, description: "Find a Team with given ID", null: false do
+    argument :id, ID, required: true
+  end
+
+  def team(**args)
+    context[:current_user].teams.find_by(id: args[:id])
+  end
+
   def user(**args)
     user = User.find_by(email: args[:email])
     user.present? ? user : Users::StandInService.new(args[:email]).user
