@@ -5,7 +5,7 @@ class Mutations::DeleteSession < GraphQL::Schema::Mutation
 
   field :errors, [String], null: false
 
-  def resolve(params)
+  def resolve(params={})
     destroy_session_form = Sessions::DestroyForm.new(Session.new)
     destroy_session_form.current_session = context[:current_session]
 
