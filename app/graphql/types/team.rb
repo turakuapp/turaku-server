@@ -3,6 +3,7 @@ class Types::Team < Types::BaseObject
   field :name, String, null: false
   field :encrypted_password, Types::EncryptedData, null: false
   field :entries, [Types::Entry], null: false
+  field :users, [Types::User], null: false
 
   def encrypted_password
     object.team_memberships.find_by(user: context[:current_user]).encrypted_password
