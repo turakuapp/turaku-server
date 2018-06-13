@@ -7,11 +7,11 @@ after 'development:teams' do
   team = john.teams.first
 
   def new_fake_entry
-    name = Faker::Company.name
+    name = Faker::Internet.domain_name
     {
       title: name,
       fields: [
-        { kind: 'text', key: 'URL', value: Faker::Internet.url(name) },
+        { kind: 'text', key: 'URL', value: Faker::Internet.url(name, '') },
         { kind: 'password', key: 'Password', value: SecureRandom.alphanumeric(16) }
       ]
     }
