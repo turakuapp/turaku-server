@@ -6,4 +6,5 @@ class Types::User < Types::BaseObject
   field :encryption_salt, String, null: false
   field :teams, [Types::Team], null: false
   field :incoming_invitations, [Types::Invitation], null: false
+  field :created_at, GraphQL::Types::ISO8601DateTime, null: false
 end

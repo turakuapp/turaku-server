@@ -115,7 +115,7 @@ GEM
     graphiql-rails (1.4.10)
       railties
       sprockets-rails
-    graphql (1.8.0)
+    graphql (1.8.3)
     i18n (0.8.6)
     iniparse (1.4.4)
     jbuilder (2.7.0)
