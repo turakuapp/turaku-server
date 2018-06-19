@@ -3,5 +3,6 @@ class Types::MutationType < Types::BaseObject
   field :create_session, mutation: Mutations::CreateSession, null: false
   field :delete_session, mutation: Mutations::DeleteSession, null: false
   field :create_team, mutation: Mutations::CreateTeam, null: false
-  field :create_invitation, {mutation: Mutations::CreateInvitation, null: false}
+  field :create_invitation, mutation: Mutations::CreateInvitation, null: false
+  field :delete_invitation, mutation: Mutations::DeleteInvitation, null: false
 end
