@@ -6,7 +6,8 @@ class Mutations::DeleteInvitation < Mutations::BaseMutation
   field :errors, [String], null: false
 
   def resolve(params)
-    invitation = Invitation.where(team: current_user.teams).find_by(id: params[:id])
+    invitation = Invitation.where(team: current_user.teams).find_by(id: params[:id]) ||
+      current_user.incoming_invitations.find_by(id: params[:id])
 
     if invitation.present?
       invitation.destroy!
