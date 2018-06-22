@@ -8,6 +8,28 @@ module Users
     end
 
     def create
+      if user.present?
+        update_existing_user
+      else
+        create_new_user
+      end
+    end
+
+    private
+
+    def update_existing_user
+      user.update!(
+        name: @name,
+        password: @password,
+        authentication_salt: @authentication_salt,
+        encryption_salt: encryption_salt
+      )
+
+      # Send confirmation email, and return the user.
+      user.tap(&:send_confirmation_instructions)
+    end
+
+    def create_new_user
       User.create!(
         name: @name,
         email: @email,
@@ -16,8 +38,6 @@ module Users
         encryption_salt: encryption_salt
       )
     end
-
-    private
 
     def user
       @user ||= User.find_by(email: @email)

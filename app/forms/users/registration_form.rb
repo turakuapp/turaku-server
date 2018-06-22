@@ -8,12 +8,19 @@ module Users
     validate :register_only_once
 
     def register_only_once
-      return if User.find_by(email: email).blank?
-      errors[:base] << 'EmailAlreadyRegistered'
+      return if user.blank?
+      return if user.authentication_salt.blank?
+      errors[:base] << 'AlreadyRegistered'
     end
 
     def save
       Users::CreateService.new(name, email, password, authentication_salt).create
+    end
+
+    private
+
+    def user
+      @user ||= User.find_by(email: email)
     end
   end
 end
