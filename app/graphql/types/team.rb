@@ -10,4 +10,8 @@ class Types::Team < Types::BaseObject
   def encrypted_password
     object.team_memberships.find_by(user: context[:current_user]).encrypted_password
   end
+
+  def invitations
+    object.invitations.pending
+  end
 end

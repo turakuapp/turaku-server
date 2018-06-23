@@ -7,4 +7,8 @@ class Types::User < Types::BaseObject
   field :teams, [Types::Team], null: false
   field :incoming_invitations, [Types::Invitation], null: false
   field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+
+  def incoming_invitations
+    object.incoming_invitations.pending
+  end
 end
