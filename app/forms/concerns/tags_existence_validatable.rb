@@ -13,7 +13,7 @@ module TagsExistenceValidatable
 
     tag_ids.each do |tag_id|
       next if team.tags.find_by(id: tag_id).present?
-      errors[:base] << "Tag with ID #{tag_id} does not exist."
+      errors[:base] << "InvalidTag"
     end
   end
 
@@ -21,5 +21,9 @@ module TagsExistenceValidatable
     @tags ||= begin
       team.tags.find(tag_ids) if tag_ids.present?
     end
+  end
+
+  def team
+    model.team
   end
 end

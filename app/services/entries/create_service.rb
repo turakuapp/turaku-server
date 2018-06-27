@@ -16,7 +16,7 @@ module Entries
     def create
       @team.entries.create!(
         user: @user,
-        encrypted_data: @encrypted_data,
+        encrypted_data: @encrypted_data.to_h,
         tags: @tags
       )
     end

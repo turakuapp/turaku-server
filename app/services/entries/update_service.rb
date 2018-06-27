@@ -13,7 +13,7 @@ module Entries
     # @return [Entry] Updated entry.
     def update
       @entry.update!(
-        encrypted_data: @encrypted_data,
+        encrypted_data: @encrypted_data.to_h,
         tags: @tags
       )
 
