@@ -17,7 +17,7 @@ after 'development:teams' do
     }
   end
 
-  3.times do
+  50.times do
     Entry.create!(
       user: john,
       team: team,
