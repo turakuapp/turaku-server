@@ -12,3 +12,8 @@ User.create!(
   encryption_salt: hash[:encryption_salt],
   confirmed_at: Time.zone.now
 )
+
+User.create!(
+  skip_password: true,
+  email: "janedoe@example.com"
+)
