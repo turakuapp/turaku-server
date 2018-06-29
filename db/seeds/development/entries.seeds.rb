@@ -13,6 +13,7 @@ after 'development:teams' do
       title: name.split('.').first.capitalize,
       fields: [
         { kind: 'text', key: 'URL', value: Faker::Internet.url(name, '') },
+        { kind: 'text', key: 'Username', value: 'johndoe@example.com' },
         { kind: 'password', key: 'Password', value: SecureRandom.alphanumeric(16) }
       ]
     }
