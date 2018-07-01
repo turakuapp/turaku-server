@@ -6,6 +6,7 @@ class Types::Team < Types::BaseObject
   field :users, [Types::User], null: false
   field :created_at, GraphQL::Types::ISO8601DateTime, null: false
   field :invitations, [Types::Invitation], null: false
+  field :tags, [Types::Tag], null: false
 
   def encrypted_password
     object.team_memberships.find_by(user: context[:current_user]).encrypted_password
