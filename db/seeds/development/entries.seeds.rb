@@ -1,6 +1,6 @@
 require_relative 'helper'
 
-after 'development:teams' do
+after 'development:teams', 'development:tags' do
   puts 'Seeding entries...'
 
   john = User.find_by(email: 'johndoe@example.com')
@@ -19,11 +19,14 @@ after 'development:teams' do
     }
   end
 
+  let all_tags = Tag.all
+
   50.times do
     Entry.create!(
       user: john,
       team: team,
-      encrypted_data: Seed.encryptData(john, team, 'password', new_fake_entry.to_json)
+      encrypted_data: Seed.encryptData(john, team, 'password', new_fake_entry.to_json),
+      tags: all_tags.sample(rand(1..3))
     )
   end
 end
