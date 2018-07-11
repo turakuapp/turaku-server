@@ -6,7 +6,7 @@ after 'development:teams' do
   john = User.find_by(email: 'johndoe@example.com')
   team = john.teams.first
 
-  3.times do
+  6.times do
     tag_name = Faker::Lorem.word
 
     Tag.create!(
