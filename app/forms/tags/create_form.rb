@@ -1,17 +1,12 @@
 module Tags
   class CreateForm < Reform::Form
-    property :team_id, validates: { presence: true }
+    property :team_id, validates: { presence: { message: 'TeamIdBlank' } }
     property :encrypted_name, validates: { encrypted_object: true }
-    property :name_hash, validates: { presence: true }
+    property :name_hash, validates: { presence: { message: 'NameHashBlank' } }
 
     def save
       return tag if tag.present?
-      @created = true
-      Tags::CreateService.new(team, encrypted_name, name_hash).create
-    end
-
-    def created?
-      !!@created
+      Tags::CreateService.new(team, encrypted_name.to_h, name_hash).create
     end
 
     private

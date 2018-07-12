@@ -8,4 +8,5 @@ class Types::MutationType < Types::BaseObject
   field :accept_invitation, mutation: Mutations::AcceptInvitation, null: false
   field :create_entry, mutation: Mutations::CreateEntry, null: false
   field :update_entry, mutation: Mutations::UpdateEntry, null: false
+  field :create_tags, mutation: Mutations::CreateTags, null: false
 end
