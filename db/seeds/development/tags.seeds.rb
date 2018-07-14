@@ -12,7 +12,7 @@ after 'development:teams' do
     Tag.create!(
       team: team,
       encrypted_name: Seed.encryptData(john, team, 'password', tag_name),
-      name_hash: Digest::SHA2.base64digest(tag_name)
+      name_hash: Digest::SHA2.base64digest(tag_name.upcase)
     )
   end
 end
