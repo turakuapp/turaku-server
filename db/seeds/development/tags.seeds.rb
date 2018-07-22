@@ -6,9 +6,7 @@ after 'development:teams' do
   john = User.find_by(email: 'johndoe@example.com')
   team = john.teams.first
 
-  6.times do
-    tag_name = Faker::Lorem.word
-
+  ['Social Media', 'Email', 'Temporary', 'Engineering', 'Sales & Marketing'].each do |tag_name|
     Tag.create!(
       team: team,
       encrypted_name: Seed.encryptData(john, team, 'password', tag_name),

@@ -26,7 +26,7 @@ after 'development:teams', 'development:tags' do
       user: john,
       team: team,
       encrypted_data: Seed.encryptData(john, team, 'password', new_fake_entry.to_json),
-      tags: all_tags.sample(rand(0..2))
+      tags: [all_tags.sample]
     )
   end
 end
