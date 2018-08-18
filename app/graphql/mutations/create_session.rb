@@ -5,7 +5,7 @@ class Mutations::CreateSession < GraphQL::Schema::Mutation
   description "Create a new session for a user. The supplied password must have been salted and hashed with the user's authentication salt."
 
   field :session, Types::Session, null: true
-  field :errors, [String], null: false
+  field :errors, [Types::CreateSessionError], null: false
 
   def resolve(params)
     sign_in_form = Sessions::SignInForm.new(Session.new)
