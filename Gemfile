@@ -31,7 +31,7 @@ gem 'devise', '~> 4.3'
 gem 'jquery-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
