@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   end
 
   post "/graphql", to: "graphql#execute"
-  apipie
+
   devise_for :users
   get 'home/index'
 
