@@ -18,14 +18,8 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Ruby on Rails API documentation tool. https://github.com/Apipie/apipie-rails
 gem 'apipie-rails', '~> 0.5'
 
-# Bootstrap 4 Ruby Gem for Rails / Sprockets and Compass. https://github.com/twbs/bootstrap-rubygem
-gem 'bootstrap', '~> 4.0.0.beta'
-
 # Flexible authentication solution for Rails with Warden.
 gem 'devise', '~> 4.3'
-
-# A gem to automate using jQuery with Rails. https://github.com/rails/jquery-rails
-gem 'jquery-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.0'
