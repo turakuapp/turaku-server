@@ -19,7 +19,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'devise', '~> 4.3'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.0'
+gem 'pg', '~> 1.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -97,7 +97,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', '~> 0.38', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'rubocop', '~> 0.49.0', require: false
+  gem 'rubocop', '~> 0.59', require: false
   gem 'spring', '~> 2.0'
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '>= 3.3.0'
