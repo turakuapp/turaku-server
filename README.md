@@ -1,26 +1,38 @@
-# Turaku
+# Turaku Server
 
 ## Development setup
 
 ### Dependencies
 
-1. LibPQ - On Ubuntu, install `libpq-dev`.
-2. Node - any version.
+1. Ruby
+2. NodeJS.
+3. PostgreSQL - On Ubuntu, install `libpq-dev`.
 
-### Steps
+### Installation
 
 1. Install rbenv.
 2. Install Ruby verison specified in the `.ruby-version` file.
 3. Install the `bundler` gem.
 4. Run `bundle install` to fetch dependencies.
-5. Copy `.env.example` to `.env`
 
 ### Configuration
 
+Copy `.env.example` to `.env` and fill in the blanks.
+
 ### Database setup
+
+With the database credentials in place (see above), run the following command:
+
+    rails db:setup
+
+This will create the database and seed it with sample data.
 
 ### Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+Run all specs with:
+
+    rails spec
 
 ## Deployment instructions
+
+TODO: Add a deploy to Heroku option.
