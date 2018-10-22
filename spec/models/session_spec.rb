@@ -1,5 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Session, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { create :session }
+
+  describe '#token' do
+    context 'when a token is manually saved' do
+      before do
+        subject.token = 'TOKEN'
+      end
+
+      it 'returns the saved token' do
+        expect(subject.token).to eq('TOKEN')
+      end
+    end
+
+    context 'when there is no custom token' do
+      it 'returns the stored hash of the token' do
+        expect(subject.token).to eq(subject.token_hash)
+      end
+    end
+  end
 end

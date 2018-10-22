@@ -14,11 +14,11 @@ class User < ApplicationRecord
 
   # A password is not required if the skip_password flag is set.
   def password_required?
-    @skip_password ? false : true
+    instance_variable_defined?(:@skip_password) ? !@skip_password : true
   end
 
   # Do not send confirmation email if skipping password. This is for when inviting a user who is not already registered.
   def confirmation_required?
-    password_required? unless confirmed?
+    confirmed? ? false : password_required?
   end
 end
