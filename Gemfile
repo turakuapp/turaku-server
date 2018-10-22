@@ -80,7 +80,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # A library for setting up Ruby objects as test data.
-  gem 'factory_girl_rails', '~> 4.8'
+  gem 'factory_bot_rails', '~> 4.11'
 
   # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker', '~> 1.7'
