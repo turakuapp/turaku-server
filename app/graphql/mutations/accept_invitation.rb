@@ -2,20 +2,18 @@ class Mutations::AcceptInvitation < Mutations::BaseMutation
   argument :id, ID, required: true
   argument :encrypted_password, Types::EncryptedDataInput, required: true
 
-  description "Accept an incoming invitation to join a team."
+  description 'Accept an incoming invitation to join a team.'
 
   field :invitation, Types::Invitation, null: true
-  field :errors, [String], null: false
+  field :errors, [Types::AcceptInvitationError], null: false
 
   def resolve(params)
-    invitation = current_user.incoming_invitations.find(params[:id])
+    mutator = Invitations::AcceptInvitationMutator.new(params, context)
 
-    form = Invitations::AcceptForm.new(invitation)
-
-    if form.validate(params)
-      { invitation: form.save, errors: [] }
+    if mutator.valid?
+      { invitation: mutator.mutate, errors: [] }
     else
-      { invitation: nil, errors: form.errors.messages.values.flatten }
+      { invitation: nil, errors: mutator.errors }
     end
   end
 end
