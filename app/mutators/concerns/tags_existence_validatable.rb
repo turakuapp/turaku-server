@@ -1,4 +1,4 @@
-# Used in Tags::CreateForm and Tags::UpdateForm to ensure that only tags that exist for the team in question are passed.
+# Used in Tags::CreateForm and UpdateEntryMutator to ensure that only tags that exist for the team in question are passed.
 # This module makes the assumption that the 'team' method is available that will return the appropriate team under which
 # queries for tags should be scoped.
 module TagsExistenceValidatable
@@ -13,7 +13,7 @@ module TagsExistenceValidatable
 
     tag_ids.each do |tag_id|
       next if team.tags.find_by(id: tag_id).present?
-      errors[:base] << "InvalidTag"
+      errors[:base] << 'InvalidTag'
     end
   end
 
@@ -24,6 +24,6 @@ module TagsExistenceValidatable
   end
 
   def team
-    model.team
+    entry.team
   end
 end

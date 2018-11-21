@@ -1,4 +1,4 @@
-class Mutations::CreateSession < GraphQL::Schema::Mutation
+class Mutations::CreateSession < Mutations::BaseMutation
   argument :email, String, required: true
   argument :password, String, required: true
 
@@ -8,17 +8,19 @@ class Mutations::CreateSession < GraphQL::Schema::Mutation
   field :errors, [Types::CreateSessionError], null: false
 
   def resolve(params)
-    sign_in_form = Sessions::SignInForm.new(Session.new)
+    mutator = CreateSessionMutator.new(params, context)
 
-    if sign_in_form.validate(params)
-      session = sign_in_form.save
+    if valid?
+
+    if mutator.valid?
+      session = mutator.create_session
 
       # Update the context now that the user has signed in.
       context[:current_user] = session.user
 
       { session: session, errors: [] }
     else
-      { session: nil, errors: sign_in_form.errors.messages.values.flatten }
+      { session: nil, errors: mutator.errors }
     end
   end
 end

@@ -8,7 +8,19 @@ class Mutations::UpdateEntry < Mutations::BaseMutation
   field :entry, Types::Entry, null: true
   field :errors, [String], null: false
 
+  def self.accessible?(context)
+    context[:current_user].present?
+  end
+
   def resolve(params)
+    mutator = UpdateEntryMutator.new(params, context)
+
+    if mutator.valid?
+      { entry: mutator.update_entry, errors: [] }
+    else
+      { entry: nil, erros: mutator.errors }
+    end
+
     entry = Entry.find(params[:id])
     form = Entries::UpdateForm.new(entry)
 

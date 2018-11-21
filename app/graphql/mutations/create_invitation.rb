@@ -7,6 +7,10 @@ class Mutations::CreateInvitation < GraphQL::Schema::Mutation
   field :invitation, Types::Invitation, null: true
   field :errors, [String], null: false
 
+  def self.accessible?(context)
+    context[:current_user].present?
+  end
+
   def resolve(params)
     invitation = Invitation.new(inviting_user: context[:current_user])
     form = Invitations::CreateForm.new(invitation)

@@ -15,8 +15,11 @@ class Types::QueryType < Types::BaseObject
   end
 
   def user(**args)
-    user = User.find_by(email: args[:email])
-    user.present? ? user : Users::StandInService.new(args[:email]).user
+    if context[:current_user].present? && context[:current_user].email == args[:email]
+      context[:current_user]
+    else
+      Users::StandInService.new(args[:email]).user
+    end
   end
 
   def session

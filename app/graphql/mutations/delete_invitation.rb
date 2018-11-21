@@ -5,6 +5,10 @@ class Mutations::DeleteInvitation < Mutations::BaseMutation
 
   field :errors, [String], null: false
 
+  def self.accessible?(context)
+    context[:current_user].present?
+  end
+
   def resolve(params)
     invitation = Invitation.where(team: current_user.teams).find_by(id: params[:id]) ||
       current_user.incoming_invitations.find_by(id: params[:id])
