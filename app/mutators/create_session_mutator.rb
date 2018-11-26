@@ -10,9 +10,9 @@ class CreateSessionMutator < ApplicationMutator
     begin
       @user = Users::AuthenticationService.new(email, password).authenticate
     rescue Sessions::AuthenticationFailureException
-      errors[:base] << 'AuthenticationFailure'
+      errors.add(:base, 'AuthenticationFailure')
     rescue Sessions::UnconfirmedEmailException
-      errors[:base] << 'UnconfirmedEmail'
+      errors.add(:base, 'UnconfirmedEmail')
     end
   end
 

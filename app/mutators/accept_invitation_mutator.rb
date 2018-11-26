@@ -10,13 +10,13 @@ class AcceptInvitationMutator < ApplicationMutator
   def invitation_must_belong_to_user
     return if invitation.present?
 
-    errors[:base] << 'InvalidInvitationId'
+    errors.add(:base, 'InvalidId')
   end
 
   def accept_only_once
     return if invitation.accepted_at.blank?
 
-    errors[:base] << 'AlreadyAcceptedInvitation'
+    errors.add(:base,'AlreadyAcceptedInvitation')
   end
 
   # @return [Invitation] Invitation that has been accepted.

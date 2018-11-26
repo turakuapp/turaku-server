@@ -10,14 +10,13 @@ class Mutations::DeleteInvitation < Mutations::BaseMutation
   end
 
   def resolve(params)
-    invitation = Invitation.where(team: current_user.teams).find_by(id: params[:id]) ||
-      current_user.incoming_invitations.find_by(id: params[:id])
+    mutator = DeleteInvitationMutator.new(params, context)
 
-    if invitation.present?
-      invitation.destroy!
+    if mutator.valid?
+      mutator.delete_invitation
       { errors: [] }
     else
-      { errors: ['InvalidId'] }
+      { errors: mutator.error_codes }
     end
   end
 end

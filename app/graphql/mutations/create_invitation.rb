@@ -12,13 +12,12 @@ class Mutations::CreateInvitation < GraphQL::Schema::Mutation
   end
 
   def resolve(params)
-    invitation = Invitation.new(inviting_user: context[:current_user])
-    form = Invitations::CreateForm.new(invitation)
+    mutator = CreateInvitationMutator.new(params, context)
 
-    if form.validate(params)
-      { invitation: form.save, errors: [] }
+    if mutator.valid?
+      { invitation: mutator.create_invitation, errors: [] }
     else
-      { invitation: nil, errors: form.errors.messages.values.flatten }
+      { invitation: nil, errors: mutator.error_codes }
     end
   end
 end

@@ -11,7 +11,7 @@ class UpdateEntryMutator < ApplicationMutator
 
   def entry_must_be_accessible
     return if entry.present?
-    errors[:base] << 'InvalidId'
+    errors.add(:base, 'InvalidId')
   end
 
   def entry

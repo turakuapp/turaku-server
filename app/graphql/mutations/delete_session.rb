@@ -16,7 +16,7 @@ class Mutations::DeleteSession < GraphQL::Schema::Mutation
       mutator.delete_session
       { errors: [] }
     else
-      { errors: mutator.errors }
+      { errors: mutator.error_codes }
     end
   end
 end

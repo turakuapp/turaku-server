@@ -17,7 +17,7 @@ class Mutations::AcceptInvitation < Mutations::BaseMutation
     if mutator.valid?
       { invitation: mutator.accept_invitation, errors: [] }
     else
-      { invitation: nil, errors: mutator.errors }
+      { invitation: nil, errors: mutator.error_codes }
     end
   end
 end

@@ -1,4 +1,6 @@
 class Mutations::CreateEntry < Mutations::BaseMutation
+  include ::TagsExistenceValidatable
+
   argument :team_id, ID, required: true
   argument :encrypted_data, Types::EncryptedDataInput, required: true
   argument :tag_ids, [ID], required: true
@@ -13,14 +15,12 @@ class Mutations::CreateEntry < Mutations::BaseMutation
   end
 
   def resolve(params)
-    team = current_user.teams.find(params[:team_id])
-    entry = Entry.new(team: team)
-    form = Entries::CreateForm.new(entry)
+    mutator = CreateEntryMutator.new(params, context)
 
-    if form.validate(params)
-      { entry: form.save(current_user), errors: [] }
+    if mutator.valid?
+      { entry: mutator.create_entry, errors: [] }
     else
-      { entry: nil, errors: form.errors.messages.values.flatten }
+      { entry: nil, errors: mutator.error_codes }
     end
   end
 end

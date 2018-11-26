@@ -8,7 +8,11 @@ class ApplicationMutator
     assign_attributes(attributes)
   end
 
-  def errors
-    super.messages.values.flatten
+  def error_codes
+    errors.messages.values.flatten
+  end
+
+  def current_user
+    context[:current_user]
   end
 end

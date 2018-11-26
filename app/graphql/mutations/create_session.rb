@@ -10,8 +10,6 @@ class Mutations::CreateSession < Mutations::BaseMutation
   def resolve(params)
     mutator = CreateSessionMutator.new(params, context)
 
-    if valid?
-
     if mutator.valid?
       session = mutator.create_session
 
@@ -20,7 +18,7 @@ class Mutations::CreateSession < Mutations::BaseMutation
 
       { session: session, errors: [] }
     else
-      { session: nil, errors: mutator.errors }
+      { session: nil, errors: mutator.error_codes }
     end
   end
 end

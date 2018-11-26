@@ -6,7 +6,7 @@ class DeleteSessionMutator < ApplicationMutator
   def user_must_own_session
     return if id.blank?
     return if session.blank?
-    errors[:base] << 'InvalidId'
+    errors.add(:base, 'InvalidId')
   end
 
   def session
