@@ -12,14 +12,12 @@ class Mutations::CreateTeam < GraphQL::Schema::Mutation
   end
 
   def resolve(params)
-    form = Teams::CreateForm.new(Team.new)
+    mutator = CreateTeamMutator.new(params, context)
 
-    if form.validate(params)
-      team = form.save(context[:current_user])
-
-      { team: team, errors: [] }
+    if mutator.valid?
+      { team: mutator.create_team, errors: [] }
     else
-      { team: nil, errors: form.errors.messages.values.flatten }
+      { team: nil, errors: mutator.error_codes }
     end
   end
 end

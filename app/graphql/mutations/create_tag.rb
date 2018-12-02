@@ -13,12 +13,12 @@ class Mutations::CreateTag < GraphQL::Schema::Mutation
   end
 
   def resolve(params)
-    form = Tags::CreateForm.new(Tag.new)
+    mutator = CreateTagMutator.new(params, context)
 
-    if form.validate(params)
-      { tag: form.save, errors: [] }
+    if mutator.valid?
+      { tag: mutator.create_tag, errors: [] }
     else
-      { tag: nil, errors: form.errors.messages.values.flatten }
+      { tag: nil, errors: mutator.error_codes }
     end
   end
 end
