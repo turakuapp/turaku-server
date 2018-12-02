@@ -10,15 +10,15 @@ class Types::QueryType < Types::BaseObject
     argument :id, ID, required: true
   end
 
-  def team(**args)
-    context[:current_user].teams.find_by(id: args[:id])
+  def team(id:)
+    context[:current_user].teams.find_by(id: id)
   end
 
-  def user(**args)
-    if context[:current_user].present? && context[:current_user].email == args[:email]
+  def user(email:)
+    if context[:current_user].present? && context[:current_user].email == email
       context[:current_user]
     else
-      Users::StandInService.new(args[:email]).user
+      Users::StandInService.new(email).user
     end
   end
 
