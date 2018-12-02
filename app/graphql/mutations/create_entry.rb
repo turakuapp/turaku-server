@@ -1,6 +1,4 @@
 class Mutations::CreateEntry < Mutations::BaseMutation
-  include ::TagsExistenceValidatable
-
   argument :team_id, ID, required: true
   argument :encrypted_data, Types::EncryptedDataInput, required: true
   argument :tag_ids, [ID], required: true

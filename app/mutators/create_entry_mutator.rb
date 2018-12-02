@@ -3,6 +3,8 @@ class CreateEntryMutator < ApplicationMutator
   attr_accessor :encrypted_data
   attr_accessor :tag_ids
 
+  include ::TagsExistenceValidatable
+
   validates :encrypted_data, encrypted_object: true
 
   validate :team_must_be_valid
