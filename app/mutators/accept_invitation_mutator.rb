@@ -2,7 +2,7 @@ class AcceptInvitationMutator < ApplicationMutator
   attr_accessor :id
   attr_accessor :encrypted_password
 
-  validates :encyrpted_password, encrypted_object: true
+  validates :encrypted_password, encrypted_object: true
 
   validate :invitation_must_belong_to_user
   validate :accept_only_once
@@ -25,6 +25,6 @@ class AcceptInvitationMutator < ApplicationMutator
   end
 
   def invitation
-    @invitation ||= context[:current_user].invitations.find_by(id: id)
+    @invitation ||= current_user.incoming_invitations.find_by(id: id)
   end
 end

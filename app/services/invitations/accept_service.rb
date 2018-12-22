@@ -5,7 +5,7 @@ module Invitations
       @encrypted_password = encrypted_password
     end
 
-    def execute
+    def accept
       Invitation.transaction do
         # Add invited user to the team.
         TeamMembership.create!(
