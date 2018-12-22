@@ -10,10 +10,6 @@ class Mutations::CreateUser < GraphQL::Schema::Mutation
   field :user, Types::User, null: true
   field :errors, [String], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params)
     mutator = CreateUserMutator.new(params, context)
 
