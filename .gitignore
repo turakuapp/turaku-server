@@ -37,3 +37,6 @@ spec/examples.txt
 
 # IDE-specific files.
 /.idea
+
+# Ignore coverage report.
+/coverage

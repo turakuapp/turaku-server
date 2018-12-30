@@ -1,5 +1,9 @@
 # Turaku Server
 
+[![Build Status](https://travis-ci.org/turakuapp/turaku-server.svg?branch=master)](https://travis-ci.org/turakuapp/turaku-server)
+[![Maintainability](https://api.codeclimate.com/v1/badges/43fd82923e59422d81a9/maintainability)](https://codeclimate.com/github/turakuapp/turaku-server/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/43fd82923e59422d81a9/test_coverage)](https://codeclimate.com/github/turakuapp/turaku-server/test_coverage)
+
 ## Development setup
 
 ### Dependencies
