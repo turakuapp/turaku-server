@@ -1,12 +1,7 @@
 FactoryBot.define do
   factory :session do
     user
-    sequence(:token_hash) { |i| Digest::SHA256.hexdigest("TOKEN_#{i}") }
-
-    before(:create) do |session|
-      if session.token.present?
-        session.token_hash = Digest::SHA256.hexdigest(session.token)
-      end
-    end
+    sequence(:token) { |i| "TOKEN_#{i}" }
+    token_hash { Digest::SHA256.hexdigest(token) }
   end
 end

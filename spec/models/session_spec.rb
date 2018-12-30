@@ -16,7 +16,8 @@ RSpec.describe Session, type: :model do
 
     context 'when there is no custom token' do
       it 'returns the stored hash of the token' do
-        expect(subject.token).to eq(subject.token_hash)
+        session = Session.find(subject.id)
+        expect(session.token).to eq(subject.token_hash)
       end
     end
   end

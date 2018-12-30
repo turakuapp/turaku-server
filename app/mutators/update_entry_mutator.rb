@@ -16,11 +16,11 @@ class UpdateEntryMutator < ApplicationMutator
 
   def entry
     @entry ||= begin
-      Entry.joins(:teams).where(team: context[:current_user].teams).find_by(id: id)
+      Entry.joins(:team).where(team: context[:current_user].teams).find_by(id: id)
     end
   end
 
   def update_entry
-    Entries::UpdateService.new(model, encrypted_data, tags).update
+    Entries::UpdateService.new(entry, encrypted_data, tags).update
   end
 end

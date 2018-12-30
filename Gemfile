@@ -4,13 +4,13 @@ ruby '2.5.3'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
-
 # A Ruby gem to load environment variables from `.env`. https://github.com/bkeepers/dotenv
 #
 # This needs to be kept near the top of the Gemfile to load environment variables as early as possible.
 gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.2.1'
 
 # ActiveModel::Serializer implementation and Rails hooks
 gem 'active_model_serializers', '~> 0.10.0'

@@ -3,14 +3,15 @@ common: &common
   host: <%= ENV['DATABASE_HOST'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  database: <%= ENV['DATABASE_NAME'] %>
   reconnect: true
 
 development:
   <<: *common
+  database: <%= ENV['DATABASE_NAME'] %>
 
 test:
   <<: *common
+  database: <%= ENV['DATABASE_NAME_TEST'] %>
 
 production:
   pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
