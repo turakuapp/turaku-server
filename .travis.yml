@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 2.5.3
+cache: bundler
 env:
   global:
     - CC_TEST_REPORTER_ID=956c8fa8a0a2e6267020c7bd9ba57a64d8a7460d7222614fd9e58947895fec51
