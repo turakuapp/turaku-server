@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'mutator_helper'
 
 RSpec.describe UpdateEntryMutator do
-  subject { UpdateEntryMutator.new(params, context) }
+  subject { described_class.new(params, context) }
 
   let(:team_membership) { create :team_membership }
   let(:user) { team_membership.user }

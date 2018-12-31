@@ -15,7 +15,7 @@ class CreateEntryMutator < ApplicationMutator
   end
 
   def team
-    @team ||= current_user.teams.find(params[:team_id])
+    @team ||= current_user.teams.find(team_id)
   end
 
   def create_entry
