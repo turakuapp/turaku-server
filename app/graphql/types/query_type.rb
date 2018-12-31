@@ -17,11 +17,7 @@ class Types::QueryType < Types::BaseObject
   end
 
   def user(email:)
-    if context[:current_user].present? && context[:current_user].email == email
-      context[:current_user]
-    else
-      Users::StandInService.new(email).user
-    end
+    Users::StandInService.new(email).compare(context[:current_user])
   end
 
   def session
