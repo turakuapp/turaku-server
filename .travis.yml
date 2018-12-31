@@ -6,14 +6,19 @@ env:
   global:
     - CC_TEST_REPORTER_ID=956c8fa8a0a2e6267020c7bd9ba57a64d8a7460d7222614fd9e58947895fec51
     - COVERAGE=true
+    - DATABASE_NAME=travis_ci_test
+    - DATABASE_NAME_TEST=travis_ci_test
+    - DATABASE_USERNAME=postgres
+    - DATABASE_PASSWORD=
+    - DATABASE_HOST=localhost
+    - AUTHENTICATION_SALT_HASH_SALT=test-salt-string
 before_script:
-  - cp config/database.travis.yml config/database.yml
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
   - bundle exec rails db:setup
-  - bundle exec rspec
+  - bundle exec rspec -fd
 services:
   - postgresql
 addons:
