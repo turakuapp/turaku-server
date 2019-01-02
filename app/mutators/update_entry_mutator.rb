@@ -15,9 +15,7 @@ class UpdateEntryMutator < ApplicationMutator
   end
 
   def entry
-    @entry ||= begin
-      Entry.joins(:team).where(team: context[:current_user].teams).find_by(id: id)
-    end
+    @entry ||= Entry.joins(:team).where(team: context[:current_user].teams).find_by(id: id)
   end
 
   def update_entry

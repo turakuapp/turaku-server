@@ -20,4 +20,15 @@ RSpec.describe UpdateEntryMutator do
       subject.update_entry
     end
   end
+
+  describe '#valid?' do
+    context "when the user does not belong to the entry's team" do
+      let(:user) { create :user, :confirmed }
+
+      it 'returns false and sets appropriate error code' do
+        expect(subject.valid?).to eq(false)
+        expect(subject.error_codes).to contain_exactly('InvalidId')
+      end
+    end
+  end
 end
