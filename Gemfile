@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.6.2'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -10,13 +10,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'dotenv-rails', '~> 2.2', groups: %i[development test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails', '~> 5.2.3'
 
 # ActiveModel::Serializer implementation and Rails hooks
 gem 'active_model_serializers', '~> 0.10.0'
 
 # Flexible authentication solution for Rails with Warden.
-gem 'devise', '~> 4.3'
+gem 'devise', '~> 4.6'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
