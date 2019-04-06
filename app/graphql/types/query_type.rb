@@ -11,13 +11,11 @@ class Types::QueryType < Types::BaseObject
   end
 
   def team(id:)
-    return if context[:current_user].blank?
-
-    context[:current_user].teams.find_by(id: id)
+    TeamsResolver.new(context).member(id)
   end
 
   def user(email:)
-    Users::StandInService.new(email).compare(context[:current_user])
+    UsersResolver.new(context).member(email)
   end
 
   def session
@@ -25,6 +23,6 @@ class Types::QueryType < Types::BaseObject
   end
 
   def sessions
-    context[:current_user]&.sessions || []
+    SessionsResolver.new(context).collection
   end
 end
