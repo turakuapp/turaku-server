@@ -4,7 +4,7 @@ class Mutations::AcceptInvitation < Mutations::BaseMutation
 
   description 'Accept an incoming invitation to join a team.'
 
-  field :invitation, Types::Invitation, null: true
+  field :invitation, Types::IncomingInvitation, null: true
   field :errors, [Types::AcceptInvitationError], null: false
 
   def resolve(params)
