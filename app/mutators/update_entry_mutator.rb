@@ -9,16 +9,17 @@ class UpdateEntryMutator < ApplicationMutator
 
   validate :entry_must_be_accessible
 
-  def entry_must_be_accessible
-    return if entry.present?
-    errors.add(:base, 'InvalidId')
-  end
-
   def entry
-    @entry ||= Entry.joins(:team).where(team: context[:current_user].teams).find_by(id: id)
+    @entry ||= Entry.joins(:team).where(team: current_user.teams).find_by(id: id)
   end
 
   def update_entry
     Entries::UpdateService.new(entry, encrypted_data, tags).update
+  end
+
+  def authorize
+    return if current_user.present? && entry.present?
+
+    raise UnauthorizedMutationException
   end
 end

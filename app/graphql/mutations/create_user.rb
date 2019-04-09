@@ -1,5 +1,4 @@
 class Mutations::CreateUser < GraphQL::Schema::Mutation
-  # Arguments.
   argument :name, String, required: true
   argument :email, String, required: true
   argument :password, String, required: true

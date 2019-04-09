@@ -1,4 +1,6 @@
 class CreateTeamMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :name
   attr_accessor :encrypted_password
 

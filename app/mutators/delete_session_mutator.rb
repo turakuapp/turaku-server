@@ -1,4 +1,6 @@
 class DeleteSessionMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :id
 
   validate :user_must_own_session

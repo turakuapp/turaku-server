@@ -5,10 +5,6 @@ class Mutations::DeleteSession < GraphQL::Schema::Mutation
 
   field :errors, [String], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params={})
     mutator = DeleteSessionMutator.new(params, context)
 

@@ -7,10 +7,6 @@ class Mutations::AcceptInvitation < Mutations::BaseMutation
   field :invitation, Types::Invitation, null: true
   field :errors, [Types::AcceptInvitationError], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params)
     mutator = AcceptInvitationMutator.new(params, context)
 

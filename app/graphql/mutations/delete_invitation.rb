@@ -5,10 +5,6 @@ class Mutations::DeleteInvitation < Mutations::BaseMutation
 
   field :errors, [String], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params)
     mutator = DeleteInvitationMutator.new(params, context)
 

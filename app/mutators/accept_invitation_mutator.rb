@@ -1,4 +1,6 @@
 class AcceptInvitationMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :id
   attr_accessor :encrypted_password
 

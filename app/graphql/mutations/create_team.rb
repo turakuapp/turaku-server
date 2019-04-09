@@ -7,10 +7,6 @@ class Mutations::CreateTeam < GraphQL::Schema::Mutation
   field :team, Types::Team, null: true
   field :errors, [String], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params)
     mutator = CreateTeamMutator.new(params, context)
 

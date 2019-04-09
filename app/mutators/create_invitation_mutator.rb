@@ -1,4 +1,6 @@
 class CreateInvitationMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :team_id
   attr_accessor :email
 

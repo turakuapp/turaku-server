@@ -8,10 +8,6 @@ class Mutations::CreateTag < GraphQL::Schema::Mutation
   field :tag, Types::Tag, null: true
   field :errors, [String], null: false
 
-  def self.accessible?(context)
-    context[:current_user].present?
-  end
-
   def resolve(params)
     mutator = CreateTagMutator.new(params, context)
 

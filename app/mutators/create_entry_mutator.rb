@@ -1,4 +1,6 @@
 class CreateEntryMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :team_id
   attr_accessor :encrypted_data
   attr_accessor :tag_ids

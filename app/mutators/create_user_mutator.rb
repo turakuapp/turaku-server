@@ -23,4 +23,8 @@ class CreateUserMutator < ApplicationMutator
   def create_user
     Users::CreateService.new(name, email, password, authentication_salt).create
   end
+
+  def authorize
+    # noop. All users are allowed to register during this early development phase.
+  end
 end

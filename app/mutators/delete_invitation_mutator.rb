@@ -1,13 +1,6 @@
 class DeleteInvitationMutator < ApplicationMutator
   attr_accessor :id
 
-  validate :invitation_should_be_valid
-
-  def invitation_should_be_valid
-    return if invitation.present?
-    errors.add(:base, 'InvalidId')
-  end
-
   # Supplied ID should be of an invitation to the current user, or an invitation from one of the current user's teams.
   def invitation
     @invitation ||= begin
@@ -18,5 +11,11 @@ class DeleteInvitationMutator < ApplicationMutator
 
   def delete_invitation
     invitation.destroy!
+  end
+
+  def authorize
+    return if current_user.present? && invitation.present?
+
+    raise UnauthorizedMutationException
   end
 end

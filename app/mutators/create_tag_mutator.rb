@@ -1,4 +1,6 @@
 class CreateTagMutator < ApplicationMutator
+  include AuthorizeWithUser
+
   attr_accessor :team_id
   attr_accessor :name_hash
   attr_accessor :encrypted_name

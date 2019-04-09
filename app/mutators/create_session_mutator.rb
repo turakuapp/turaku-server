@@ -26,4 +26,8 @@ class CreateSessionMutator < ApplicationMutator
   def create_session
     Sessions::CreateService.new(user).create
   end
+
+  def authorize
+    # noop. This mutation is accessible to the public.
+  end
 end
