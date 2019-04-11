@@ -24,7 +24,8 @@ class ApplicationMutator
   end
 
   def valid?
-    authorize && super
+    authorize
+    super
   end
 
   def authorize
