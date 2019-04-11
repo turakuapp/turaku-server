@@ -5,15 +5,17 @@ class Mutations::AcceptInvitation < Mutations::BaseMutation
   description 'Accept an incoming invitation to join a team.'
 
   field :invitation, Types::IncomingInvitation, null: true
+  field :team, Types::Team, null: true
   field :errors, [Types::AcceptInvitationError], null: false
 
   def resolve(params)
     mutator = AcceptInvitationMutator.new(params, context)
 
     if mutator.valid?
-      { invitation: mutator.accept_invitation, errors: [] }
+      invitation = mutator.accept_invitation
+      { invitation: invitation, team: invitation.team, errors: [] }
     else
-      { invitation: nil, errors: mutator.error_codes }
+      { invitation: nil, team: nil, errors: mutator.error_codes }
     end
   end
 end
