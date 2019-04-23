@@ -7,8 +7,6 @@ class UpdateEntryMutator < ApplicationMutator
 
   validates :encrypted_data, encrypted_object: true
 
-  validate :entry_must_be_accessible
-
   def entry
     @entry ||= Entry.joins(:team).where(team: current_user.teams).find_by(id: id)
   end
