@@ -4,7 +4,7 @@ class DeleteInvitationMutator < ApplicationMutator
   # Supplied ID should be of an invitation to the current user, or an invitation from one of the current user's teams.
   def invitation
     @invitation ||= begin
-      current_user.incoming_invitations.find_by(id: params[:id]) ||
+      current_user.incoming_invitations.find_by(id: id) ||
         Invitation.where(team: context[:current_user].teams).find_by(id: id)
     end
   end
