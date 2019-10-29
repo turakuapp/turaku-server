@@ -16,7 +16,7 @@ gem 'rails', '~> 5.2.3'
 gem 'active_model_serializers', '~> 0.10.0'
 
 # Flexible authentication solution for Rails with Warden.
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
